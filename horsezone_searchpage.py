@@ -23,7 +23,8 @@ class HorsezoneSpider(scrapy.Spider):
                 'price': ad.xpath('.//span[@class="price"]/text()').get(),
                 'excerpt': ad.xpath('.//p[contains(@class, "description")]/a/text()').get(),
                 'disciplines': ad.xpath('.//p[@class="optional_1"]/a/text()[2]').get(),
-                'location': ad.xpath('.//div[@class="legend-location"]/p/a/text()[2]').get()
+                'location': ad.xpath('.//div[@class="legend-location"]/p/a/text()[2]').get(),
+                'sold': ad.xpath('.//div[@class="title"]/a/img/@src').get()
             }
 
         # scrape all search-page data
@@ -33,4 +34,3 @@ class HorsezoneSpider(scrapy.Spider):
                 yield response.follow(next_page, callback=self.parse)
         except:
             pass
-

@@ -30,6 +30,12 @@ class HorsezoneSpider(scrapy.Spider):
         for item in response.css('div.main'):
             webpage = response.css('title').get()
             title = response.css('.listing_title::text').get()
+
+            try:
+                sold = item.xpath('.//div[@class="listing_title"]/img/@src').get()
+            except:
+                sold = ''
+
             listing_id = item.xpath('.//div[contains(@style,"display: inline; font-size: 0.6em")]/text()').get()
             num_views = item.xpath('.//span[@class="times-viewed"]/text()').get()
             seller_id = response.css('.seller_username a::text').get()
@@ -95,6 +101,7 @@ class HorsezoneSpider(scrapy.Spider):
             
             items['webpage'] = webpage
             items['title'] = title
+            items['sold'] = sold
             items['listing_id'] = listing_id
             items['num_views'] = num_views
             items['seller_id'] = seller_id
