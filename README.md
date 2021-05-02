@@ -4,5 +4,11 @@ This is just a project I devised mainly to explore the capabilities of scrapy. H
 
 The final scrape was able to pull out 2616 ads from Horse Deals and 494 ads from Horsezone, and included a number of different elements such as the listing price, title or horse name, advert text, what disciplines the horse would be suited for, breed, age and height.
 
+The first chart plotted the ratio of sold to 'not-sold' ads. It indicated that about half of the Horse Deals dataset was made up of adverts marked as sold, whereas the proportion of adverts marked as sold in the Horsezone dataset was far smaller (approximately 20 per cent).
 
+[insert image here]
+
+The second chart looked at the distribution of number of views of adverts across the two websites. The distributions were very similar in shape, but somewhat surprisingly, the average (mean) number of views for the Horse Deals website was slightly lower at 877 views compared to 1,139 views for the Horsezone website.
+
+[insert image here]
 
